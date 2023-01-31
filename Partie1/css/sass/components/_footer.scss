@@ -1,0 +1,81 @@
+footer{
+
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  background-color: $textColorSecondary;
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    li{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  #about{
+    h3{
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+    p{
+      font-size: 12px;
+      font-weight: bold;
+      width: fit-content;
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+  }
+  #inc{
+    padding-bottom: 80px;
+    border-top: 2px solid lightgrey;
+
+    li{
+      flex-direction: row;
+      align-items: center;
+    }
+    img{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .socials{
+    gap: 8px;
+    img{
+      padding: 5px;
+      background-color: black;
+      border-radius: 50%;
+    }
+  }
+  #newsletter{
+    input{
+      width: 170px;
+      height: 40px;
+      background-color: $textColorSecondary;
+      box-sizing: content-box;
+      border: 2px solid lightgrey;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+
+      font-size: 12px;
+
+      &::placeholder{
+        padding-left: 10px;
+      }
+    }
+    span{
+      position: relative;
+      left: -5px;
+      top: 0;
+      max-height: 40px;
+      background-color: $purple;
+      color: $textColorSecondary;
+      border-radius: 0 5px 5px 0;
+      padding: 14px;
+      font-size: 12px;
+    }
+  }
+}
