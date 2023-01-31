@@ -1,0 +1,48 @@
+.prestation{
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 180px;
+
+  h2{
+    font-size: 45px;
+    margin-right: 10px;
+  }
+  h3{
+    font-size: 45px;
+    padding: 5px 5px;
+    background-color: $purple;
+    color: $textColorSecondary;
+    transform: skew(-10deg);
+  }
+
+  div{
+    flex-direction: row;
+  }
+  article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 40px 0 40px;
+
+    img{
+      width: 50px;
+      background-color: #e8eaee;
+      border-radius: 50%;
+    }
+    h4{
+      width: fit-content;
+    }
+    p{
+      width: 80%;
+      font-size: 12px;
+      text-align: center;
+    }
+    .know-more{
+      width: fit-content;
+      color: $purple;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
