@@ -1,0 +1,80 @@
+.why-us {
+
+  article {
+    margin-top: 100px;
+    justify-content: space-between;
+
+    .food {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+
+      img {
+        width: 85%;
+        height: fit-content;
+        border-radius: 30px;
+      }
+
+    }
+
+    #reputation {
+      color: $purple;
+      font-weight: normal;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    h2, h3 {
+      font-size: 45px;
+      font-weight: bold;
+    }
+
+    h3 {
+      width: fit-content;
+      margin-left: 20px;
+      padding: 0 10px;
+      background-color: $purple;
+      color: $textColorSecondary;
+      transform: skew(-10deg);
+    }
+
+    .desc {
+      margin-top: 30px;
+      width: 80%;
+    }
+
+    .part2 {
+      width: 80%;
+      margin-top: 30px;
+      flex-direction: column;
+      justify-content: space-between;
+
+      ul{
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+        h4{
+          font-size: 20px;
+        }
+        p{
+          color: $purple;
+          font-size: 12px;
+        }
+
+      }
+
+      .button {
+        margin-top: 30px;
+        padding: 8px 25px;
+        border-radius: 5px;
+        background-color: $purple;
+        color: $textColorSecondary;
+      }
+    }
+
+  }
+
+  .button:hover {
+    cursor: pointer;
+  }
+}
