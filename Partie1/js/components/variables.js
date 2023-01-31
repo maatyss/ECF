@@ -5,4 +5,8 @@ const selectAll = (item)=>{
   return document.querySelectorAll(item)
 }
 
-export {select, selectAll}
+const ran = (max)=>{
+  return Math.floor(Math.random()*(max+1))
+}
+
+export {select, selectAll, ran}
