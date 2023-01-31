@@ -23,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     margin: 80px 40px 0 40px;
+    transition: 200ms;
 
     img{
       width: 50px;
@@ -40,9 +41,6 @@
     .know-more{
       width: fit-content;
       color: $purple;
-      &:hover{
-        cursor: pointer;
-      }
     }
   }
 }

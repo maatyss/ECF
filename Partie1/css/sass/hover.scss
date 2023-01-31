@@ -1,0 +1,51 @@
+header{
+  li:hover{
+    cursor: pointer;
+    color: $purple;
+    border-bottom: 2px solid $purple;
+  }
+}
+
+footer{
+  span,img:hover{
+    cursor: pointer;
+  }
+  #about{
+    p:hover{
+      border-bottom-color: $textColorPrimary;
+    }
+  }
+  #newsletter{
+    p:hover{
+      border-bottom-color: transparent;
+    }
+    input:focus{
+      border-color: $purple;
+    }
+  }
+  #inc{
+    img:hover{
+      background-color: lighten(black, 30);
+      scale: 0.95;
+    }
+  }
+}
+
+.prestation article:hover{
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.button:hover{
+  cursor: pointer;
+    background-color: darken(#6415ff, 100);
+    color: lighten(#e8eaee, 30);
+    scale: 1.05;
+}
+#meet:hover{
+  p{
+    color: $purple;
+    font-weight: bold;
+  }
+}
+
