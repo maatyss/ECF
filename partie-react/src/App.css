@@ -20,6 +20,9 @@ header{
     justify-content: center;
     align-items: center;
 }
+#discover:hover{
+    cursor: pointer;
+}
 #discover>h1{
     margin-right: 8px;
 }
@@ -46,6 +49,7 @@ ul li{
     padding: 8px 12px;
     color: #707f95;
     transition: 100ms;
+    cursor: pointer;
 }
 .selected {
     background-color: #6415ff;

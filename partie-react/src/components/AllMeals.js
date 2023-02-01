@@ -4,7 +4,6 @@ import slugify from 'slugify'
 
 const AllMeals = (props)=>{
   let [meals, setMeals] = useState([])
-  let [DisplayAll, setDisplayAll] = useState(true)
   let [meal, setMeal] = useState([])
   
   axios.get('http://localhost:3000/meals').then(response =>{
@@ -51,12 +50,12 @@ const AllMeals = (props)=>{
   
   const handleClick = (choice)=>{
     setMeal(choice)
-    setDisplayAll(false)
+    props.setDisplayAll(false)
   }
   
   return(
     <div>
-      {DisplayAll && DisplayingAll() || DisplayMealChoice()}
+      {props.displayAll && DisplayingAll() || DisplayMealChoice()}
     </div>
   )
 }

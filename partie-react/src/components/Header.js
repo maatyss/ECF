@@ -2,10 +2,15 @@ import {useEffect, useState} from 'react'
 
 const Header = (props)=>{
   let [category, setCategory] = useState('all')
+  let [returnHome, setReturnHome] = useState(false)
   
   const HandleFilter = (cat)=>{
     props.filter(cat)
     handleMenuHighlight()
+  }
+  
+  const HandlehomeClick = ()=>{
+    props.DisplayAll(true)
   }
   
   const handleMenuHighlight = ()=>{
@@ -27,9 +32,13 @@ const Header = (props)=>{
     HandleFilter(category)
   },[category])
   
+  useEffect(()=>{
+    HandlehomeClick()
+  },[returnHome])
+  
   return(
     <header>
-      <div id={'discover'}>
+      <div id={'discover'} onClick={() => setReturnHome(!returnHome)}>
         <h1>Découvrez notre </h1><h1 className={'skew'}>menu.</h1>
       </div>
       <ul className={'menu'}>
