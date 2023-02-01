@@ -2,13 +2,17 @@ import {useState} from 'react'
 import axios from 'axios'
 import slugify from 'slugify'
 
-const AllMeals = ()=>{
+const AllMeals = (props)=>{
   let [meals, setMeals] = useState([])
   let [DisplayAll, setDisplayAll] = useState(true)
   let [meal, setMeal] = useState([])
   
   axios.get('http://localhost:3000/meals').then(response =>{
-    setMeals(response.data)
+    let filteredMeals = response.data
+    if(props.catToDisplay !== 'all'){
+      filteredMeals = response.data.filter(meal => meal.type.includes(props.catToDisplay))
+    }
+    setMeals(filteredMeals)
   })
   
   const DisplayingAll = ()=>{
