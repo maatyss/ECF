@@ -4,44 +4,55 @@ import slugify from 'slugify'
 
 const AllMeals = ()=>{
   let [meals, setMeals] = useState([])
+  let [DisplayAll, setDisplayAll] = useState(true)
+  let [meal, setMeal] = useState([])
+  
   axios.get('http://localhost:3000/meals').then(response =>{
     setMeals(response.data)
   })
   
-  const hoverHandle = (cardId, buttonId)=>{
-    let card = document.querySelector('#'+cardId)
-    let orderButton = document.querySelector('#'+buttonId)
-    card.classList.toggle('hovered')
-    orderButton.classList.toggle('hidden')
+  const DisplayingAll = ()=>{
+    return (
+      <div className={'flex allmeals'}>
+    
+        {meals.map((meal, index)=>{
+          let cardId = slugify(meal.title)
+          let buttonId = slugify(meal.title) + '_Button'
+          return(
+            <article id={cardId} className={'card'} key={index}>
+              <img className={'foodpic'} src={meal.imageSrc} alt={meal.title}/>
+              <div>
+                <h3 className={'title'}>{meal.title}</h3>
+                <p className={'content'}>{meal.content}</p>
+                <h4 className={'price'}>{meal.price}</h4>
+              </div>
+              <p className={'rating'}>⭐{meal.rating}<span className={'reviews'}>({meal.reviews})</span></p>
+              <p id={buttonId} className={'orderButton hidden'} onClick={() => handleClick(meal)}>Commander</p>
+              <div className={'greyfilter'}></div>
+            </article>
+          )
+        })}
+      </div>
+    )
+  }
+  
+  const DisplayMealChoice = ()=>{
+    return(
+      <div className={'choosenOne'}>
+        <h3 className={'choosenMeal'}>Vous avez commandé le repas {meal.title}</h3>
+        <img src={meal.imageSrc} alt={meal.title}/>
+      </div>
+    )
+  }
+  
+  const handleClick = (choice)=>{
+    setMeal(choice)
+    setDisplayAll(false)
   }
   
   return(
-    <div className={'flex allmeals'}>
-  
-      {meals.map((meal, index)=>{
-        let cardId = slugify(meal.title)
-        let buttonId = slugify(meal.title) + '_Button'
-        return(
-          <article id={cardId} className={'card'} key={index}
-                   onMouseEnter={() => hoverHandle(cardId, buttonId)}
-                   onMouseLeave={() => hoverHandle(cardId, buttonId)}
-          
-          >
-            <img className={'foodpic'} src={meal.imageSrc} alt={meal.title}/>
-            <div>
-              <h3 className={'title'}>{meal.title}</h3>
-              <p className={'content'}>{meal.content}</p>
-              <h4 className={'price'}>{meal.price}</h4>
-            </div>
-            <p className={'rating'}>⭐{meal.rating}<span className={'reviews'}>({meal.reviews})</span></p>
-            <p id={buttonId} className={'orderButton hidden'}>Commander</p>
-            <div className={'greyfilter'}></div>
-          </article>
-        )
-      })}
-      
-      
-      
+    <div>
+      {DisplayAll && DisplayingAll() || DisplayMealChoice()}
     </div>
   )
 }

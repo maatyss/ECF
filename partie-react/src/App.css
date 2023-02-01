@@ -105,22 +105,25 @@ ul li{
 .hovered .greyfilter{
     display: revert;
 }
-.hovered .title{
+.card:hover .title{
     color: #6415ff;
 }
 .orderButton{
+    display: none;
     position: absolute;
     top: 35%;
     left: 50%;
+    z-index: 2;
     transform: translate(-50%, -50%);
     padding: 10px;
     border-radius: 10px;
     background-color: #6415ff;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
-.hidden{
-    display: none;
+.card:hover .orderButton, .card:hover .greyfilter{
+    display: revert;
 }
 .greyfilter{
     display: none;
@@ -130,4 +133,21 @@ ul li{
     top: 0;
     left: 0;
     background-color: rgba(194, 194, 194, 0.31);
+}
+.choosenOne{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+.choosenMeal{
+    color: #38b1ab;
+    font-weight: normal;
+}
+.choosenOne img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 30px;
 }
