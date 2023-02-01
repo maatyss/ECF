@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={'container'}>
       <Header filter={setFilter} DisplayAll={setDisplayAll}/>
-      <AllMeals catToDisplay={filter} displayAll={displayAll} setDisplayAll={setDisplayAll}/>
+      <AllMeals catToDisplay={filter} displayAll={displayAll} DisplayAll={setDisplayAll}/>
     </div>
   )
 }

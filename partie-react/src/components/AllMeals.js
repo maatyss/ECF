@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import axios from 'axios'
-import slugify from 'slugify'
+import {SingleMeal} from './SingleMeal'
 
 const AllMeals = (props)=>{
   let [meals, setMeals] = useState([])
@@ -14,30 +14,7 @@ const AllMeals = (props)=>{
     setMeals(filteredMeals)
   })
   
-  const DisplayingAll = ()=>{
-    return (
-      <div className={'flex allmeals'}>
-    
-        {meals.map((meal, index)=>{
-          let cardId = slugify(meal.title)
-          let buttonId = slugify(meal.title) + '_Button'
-          return(
-            <article id={cardId} className={'card'} key={index}>
-              <img className={'foodpic'} src={meal.imageSrc} alt={meal.title}/>
-              <div>
-                <h3 className={'title'}>{meal.title}</h3>
-                <p className={'content'}>{meal.content}</p>
-                <h4 className={'price'}>{meal.price}</h4>
-              </div>
-              <p className={'rating'}>⭐{meal.rating}<span className={'reviews'}>({meal.reviews})</span></p>
-              <p id={buttonId} className={'orderButton hidden'} onClick={() => handleClick(meal)}>Commander</p>
-              <div className={'greyfilter'}></div>
-            </article>
-          )
-        })}
-      </div>
-    )
-  }
+  
   
   const DisplayMealChoice = ()=>{
     return(
@@ -50,13 +27,18 @@ const AllMeals = (props)=>{
   
   const handleClick = (choice)=>{
     setMeal(choice)
-    props.setDisplayAll(false)
+    props.DisplayAll(false)
   }
   
   return(
-    <div>
-      {props.displayAll && DisplayingAll() || DisplayMealChoice()}
-    </div>
+      props.displayAll &&
+      <div className={'flex allmeals'}>
+        {meals.map((meal, index) => (
+                     <SingleMeal key={index} meal={meal} click={handleClick}/>
+                   )
+        )}
+      </div>
+          || <DisplayMealChoice />
   )
 }
 
