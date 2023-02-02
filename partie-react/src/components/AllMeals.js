@@ -16,15 +16,12 @@ const AllMeals = (props)=> {
   }, [])
   
   useEffect(() => {
-    console.log('ici')
-    console.log(props.catToDisplay)
     if (props.catToDisplay !== 'all') {
       let filtered = meals.filter(meal => meal.type.includes(props.catToDisplay))
       setFilteredMeals(filtered)
     } else {
       setFilteredMeals(meals)
     }
-    setFilteredMeals(filteredMeals)
   }, [props.catToDisplay])
   
   
