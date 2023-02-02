@@ -17,6 +17,13 @@
 
   div{
     flex-direction: row;
+    
+    &:nth-child(2) {
+    @media (max-width:950px) {
+      flex-direction: column;
+      }
+    }
+   
   }
   article{
     display: flex;

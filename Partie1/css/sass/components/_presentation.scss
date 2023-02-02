@@ -3,11 +3,18 @@
   article {
     margin-top: 100px;
     justify-content: space-between;
+    @media (max-width:950px) {
+      flex-direction: column;
+      text-align: center;
+    }
 
     .food {
       width: 100%;
       display: flex;
       flex-direction: row-reverse;
+      @media (max-width:950px) {
+        justify-content: center;
+      }
 
       img {
         width: 85%;
@@ -32,8 +39,7 @@
     }
 
     h3 {
-      width: fit-content;
-      margin-left: 20px;
+      display: inline-block;
       padding: 0 10px;
       background-color: $purple;
       color: $textColorSecondary;
@@ -47,12 +53,20 @@
     .desc {
       margin-top: 30px;
       width: 80%;
+      @media (max-width:950px) {
+       width: 100%;
+      }
     }
 
     .part2 {
       width: 80%;
       margin-top: 30px;
       justify-content: space-between;
+
+      @media (max-width:950px) {
+        margin: 30px auto;
+      }
+  
     }
 
     .button {
